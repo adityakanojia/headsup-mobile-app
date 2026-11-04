@@ -1,18 +1,27 @@
 {
   "expo": {
-    "name": "heads-up-mobile",
+    "name": "HeadsUp",
     "slug": "heads-up-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "headsupmobile",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "supportsTablet": true
     },
     "android": {
+      "package": "com.headsup.mobile",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.CAMERA",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.RECORD_AUDIO"
+      ],
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
@@ -28,15 +37,42 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#FFFFFF",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 240
         }
-      ]
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow HeadsUp to access your photos so you can attach worksite images to projects.",
+          "cameraPermission": "Allow HeadsUp to access your camera so you can take photos of your project site."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/android-icon-monochrome.png",
+          "color": "#FFCC00",
+          "defaultChannel": "headsup-default"
+        }
+      ],
+      "expo-image",
+      "expo-secure-store",
+      "expo-web-browser"
     ],
+    "extra": {
+      "apiBaseUrl": "https://headsup-backend-5iaj.onrender.com/api/v1",
+      "wsBaseUrl": "wss://headsup-backend-5iaj.onrender.com/api/v1",
+      "router": {},
+      "eas": {
+        "projectId": "5d933940-ff19-4ae8-aa9f-3bc174ac9e8a"
+      }
+    },
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "owner": "headsup"
   }
 }
